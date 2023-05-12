@@ -16,13 +16,15 @@ buttonCreate.addEventListener("click", () => {
 
 function createBoxes(amount) {
   let size = 30;
-  const boxes = Array.from({ length: amount }).map(() => {
-    const colorBox = `<div style="background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
-    size += 10; 
-    boxesContainerEl.insertAdjacentHTML("beforeend", colorBox);
-    return colorBox;
-  });
-  console.log(boxes);
+  const boxes = Array.from({ length: amount })
+    .map(() => {
+      const colorBox = `<div style="background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
+      size += 10;
+
+      return colorBox;
+    })
+    .join("");
+  boxesContainerEl.insertAdjacentHTML("beforeend", boxes);
 }
 
 buttonDestroy.addEventListener("click", () => {
